@@ -29,7 +29,6 @@ class App extends Component {
       .post("http://localhost:3333/smurfs", smurf)
       .then(res => {
         this.setState({ smurfs: res.data });
-        this.props.history.push("/smurf-list");
       })
       .then(err => console.log(err));
   };
