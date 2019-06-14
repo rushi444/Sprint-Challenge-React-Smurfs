@@ -37,6 +37,7 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
+    const { smurfs } = this.state;
     return (
       <div className='App'>
         <nav>
@@ -55,17 +56,13 @@ class App extends Component {
           exact
           path='/smurf-form'
           render={props => (
-            <SmurfForm
-              smurfs={this.state.smurfs}
-              addSmurf={this.addSmurf}
-              {...props}
-            />
+            <SmurfForm smurfs={smurfs} addSmurf={this.addSmurf} {...props} />
           )}
         />
         <Route
           exact
           path='/'
-          render={props => <Smurfs smurfs={this.state.smurfs} {...props} />}
+          render={props => <Smurfs smurfs={smurfs} {...props} />}
         />
       </div>
     );
